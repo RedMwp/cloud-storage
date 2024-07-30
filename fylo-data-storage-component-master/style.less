@@ -1,0 +1,187 @@
+//colors
+@Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+
+//### Neutral
+
+@PaleBlue: hsl(243, 100%, 93%);
+@GrayishBlue: hsl(229, 7%, 55%);
+@Darkblue:hsl(228, 56%, 26%);
+@VeryDarkBlue: hsl(229, 57%, 11%);
+
+//sizes and paddings
+
+//left right components
+@left-cmpt-width: 356px;
+@left-cmpt-height: 194px;
+@right-cmpt-width: 550px;
+@right-cmpt-height: 154px;
+@p-cmpt: 38px;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 850px;
+    max-width: 1440px;
+    background: @VeryDarkBlue url("images/bg-desktop.png") no-repeat bottom;
+    background-size: cover 130%;
+    color: @PaleBlue;
+}
+section {
+    background: @DarkBlue;
+    padding: @p-cmpt;
+    margin: 14px;
+}
+main {
+    padding-bottom: 120px;
+    display: flex;
+    align-items: flex-end;
+    min-height: 200px;
+    section:nth-child(1) {
+        width: @left-cmpt-width;
+        min-height: @left-cmpt-height;
+        border-radius: 10px 70px 10px 10px;
+
+        .icon {
+            height: 50px;
+            width: 50px;
+            background: @VeryDarkBlue;
+            padding: 13px;
+            border-radius: 5px;
+            margin: 24px 0;
+            margin-right: 17px;
+        }
+    }
+    section:nth-child(2) {
+        width: @right-cmpt-width;
+        min-height: @right-cmpt-height;
+        border-radius: 10px;
+        position: relative;
+        h1 {
+            font-size: 1rem;
+            font-weight: 300;
+            padding: 19px 0;
+            strong {
+                color: @PaleBlue;
+            }
+        }
+        aside {
+            color: @GrayishBlue;
+            width: 180px;
+            height: 75px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+
+            position: absolute;
+            right: 10px;
+            top: -35%;
+            &::after {
+                content: "";
+                display: block;
+                height: 40px;
+                width: 40px;
+
+                background: #fff;
+
+                transform: translate(240%, -10%) rotateZ(135deg);
+            }
+            strong {
+                font-size: 1.5rem;
+                color: @VeryDarkBlue;
+            }
+
+            @media (max-width: 950px) {
+                position: absolute;
+                top: 80%;
+
+                right: 20%;
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        .range {
+            height: 17px;
+            width: 100%;
+            background: @VeryDarkBlue;
+            border-radius: 10px;
+            position: relative;
+            &::before {
+                content: "0 GB";
+                position: absolute;
+                left: 0;
+                bottom: -140%;
+            }
+            &::after {
+                content: "1000 GB";
+                position: absolute;
+                right: 0;
+                bottom: -140%;
+            }
+            div {
+                display: block;
+                height: 100%;
+                width: 70%;
+                background: linear-gradient(
+                    to right,
+                    hsl(6, 100%, 80%),
+                    hsl(335, 100%, 65%)
+                );
+                border-radius: 50px;
+                padding: 2px;
+                div {
+                    margin-left: auto;
+                    height: 13px;
+                    width: 13px;
+                    border-radius: 50px;
+                    background: @PaleBlue;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 950px) {
+        flex-direction: column;
+        section:nth-child(2),
+        section:nth-child(1) {
+            width: 90%;
+        }
+        section:nth-child(2) {
+            min-height: 250px;
+        }
+    }
+}
+
+.attribution {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    background: @DarkBlue;
+    width: 90%;
+    max-width: 600px;
+    max-height: 100px;
+    padding: 24px;
+    color: @PaleBlue;
+    box-shadow: 1px 5px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 24px;
+    text-align: center;
+    a {
+        font-ize: 2rem;
+        text-decoration: none;
+        color: @PaleBlue;
+        font-weight: 700;
+    }
+}
